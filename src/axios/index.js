@@ -1,6 +1,6 @@
 import Vue from "vue";
 import axios from "axios";
-const apiKey = "9gnZcAkCcIQO0XKtxYSzX1u2aLpxQYwO";
+const apiKey = "aSH2mfA3CilX6OjD6qcyg9iJGpIcm6RB";
 
 const baseUrl = "https://dataservice.accuweather.com"
 
