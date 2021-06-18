@@ -1,0 +1,63 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+.container {
+    width:calc(100% - 650px);
+    margin:0 auto;
+    padding:30px;
+    min-width: 300px;
+    height: 100%;
+}
+.name, .day_of_week{
+    font-weight: 900;
+}
+.condition_icon, .card_forecast_icon, .favorite_card_icon {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 75px;
+    height: 40px;
+    margin: 0 auto;
+}
+.main_content {
+    width: 100%;
+}
+
+.card_forecast, .favorite_card {
+    padding: 10px 15px;
+    border-radius:3px;
+    margin:15px 0px;
+    box-shadow: 5px 10px 23px 0px rgba(0,0,0,0.58);
+    display:flex;
+    flex-direction:column;
+     
+}
+.favorite_card {
+    margin: 10px 10px;
+}
+
+@media (max-width: 1200px) {
+    .container {
+      width:calc(100% - 300px);
+   }  
+  }
+
+  @media (max-width: 900px) {
+    .card_forecast, .favorite_card {
+        min-width:200px;
+        padding:10px;
+    }
+    }
+
+  @media (max-width: 750px) {
+    .container {
+   width:calc(100% - 30px);
+}
+}
+
+@media (max-width: 500px) {
+    .container {
+      width:calc(100% - 20px);
+   }
+  }

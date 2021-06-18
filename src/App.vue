@@ -1,28 +1,47 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div :class="colorBackground?'green app':'purple app'">
+    <ErrorMessage />
+    <Header @toggled="colorBackground = $event"/>
+   <router-view />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 
+
+import ErrorMessage from "@/components/ErrorMessage.vue";
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    ErrorMessage
+  },
+  data() {
+    return {
+      colorBackground:false,
+      error:false,
+    }
+  },
+  watch: {
+    // error() {
+    //   console.log(this.error)
+    //   if(this.error) {
+    //     this.$router.go(0);
+    //     // window.location.reload();
+    //   }
+    // }
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+.app {
+  min-height:100vh;
 }
+.green {
+  background:#EBFAEB;
+}
+.purple {
+  background:#E8D5E8;
+}
+
 </style>
