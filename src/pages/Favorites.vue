@@ -9,6 +9,7 @@
         :key="favorite.id"
         class="favorite_card"
       >
+       <div @click="handleFavoriteCity(favorite)">
         <div class="name">
           {{ favorite.name }}
         </div>
@@ -20,7 +21,8 @@
           class="card_forecast_icon"
           :style="{ backgroundImage: 'url(' + pic_url(favorite.condition.wheatherIcon) + ')' }"
         />
-      </div>
+       </div>
+     </div>
     </div>
     <div
       v-else
@@ -56,6 +58,11 @@ export default {
             }
             return favorite;
         });
+      },
+      handleFavoriteCity(favoriteCity) {
+          this.$store.dispatch('favoriteCity',favoriteCity.name);
+          this.$router.push('/');
+
       }
     }
  }
