@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div
-      v-if="favoritesWhethers.length > 0"
+      v-if="favoritesWhethers"
       class="cards_favorites"
     >
       <div
