@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-Vue.use(Router)
+Vue.use(Router);
 
 import Home from './pages/Home';
 import Favorites from './pages/Favorites';
@@ -16,9 +16,7 @@ const router =  new Router({
         path:'/favorites',
         component:Favorites
     },   
-]
+ ]
 })
 
-
-
-export default router
+export default router;

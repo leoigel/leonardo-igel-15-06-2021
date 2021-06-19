@@ -1,8 +1,8 @@
 <template>
   <transition name="fadeAway">
     <div
-      class="card errorMessage"
       v-if="this.$store.state.error"
+      class="card errorMessage"
     >
       <h2 class="card-title">
         Error
@@ -13,8 +13,8 @@
       <div class="card-actions">
         <button
           class="dismiss btn-red"
-          @click.prevent="dismiss"
           aria-label="Dismiss Error"
+          @click.prevent="dismiss"
         >
           Dismiss Error
         </button>

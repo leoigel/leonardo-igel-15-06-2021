@@ -1,8 +1,8 @@
 <template>
   <div :class="colorBackground?'green app':'purple app'">
     <ErrorMessage />
-    <Header @toggled="colorBackground = $event"/>
-   <router-view />
+    <Header @toggled="colorBackground = $event" />
+    <router-view />
   </div>
 </template>
 
@@ -21,15 +21,6 @@ export default {
       error:false,
     }
   },
-  watch: {
-    // error() {
-    //   console.log(this.error)
-    //   if(this.error) {
-    //     this.$router.go(0);
-    //     // window.location.reload();
-    //   }
-    // }
-  }
 }
 </script>
 
@@ -43,5 +34,4 @@ export default {
 .purple {
   background:#E8D5E8;
 }
-
 </style>

@@ -1,6 +1,6 @@
 import Vue from 'vue';
-import Vuex from 'vuex'
-import api from "../axios/index"
+import Vuex from 'vuex';
+import api from "../axios/index";
 
 Vue.use(Vuex);
 
@@ -8,14 +8,11 @@ export default new Vuex.Store({
     state:{
         city:"Tel Aviv",
         cities:[],
-        wheather:{},
+        wheather:null,
         favorite:false,
         favorites:[],
         error:"",
 
-    },
-    getters:{
-      
     },
     mutations: {
         city(state,payload) {
@@ -46,7 +43,6 @@ export default new Vuex.Store({
             let wheatherExist = state.favorites.some(w => w.id === payload.id)
             if(!wheatherExist) {
                 state.favorites = [...state.favorites,payload];
-               console.log(state.favorites)
                 state.wheather = payload;
             }
             else {
@@ -71,10 +67,9 @@ export default new Vuex.Store({
     },
     actions: {
         city({commit},payload) {
-            commit("city",payload)
+            commit("city",payload);
         },
         searchForWheather({commit},payload) {
-            
             api.autoComplete(payload).then((cities) => {
                let city = cities.data.find((c) => c.LocalizedName.trim().toLowerCase() === payload.trim().toLowerCase());
                
@@ -103,18 +98,18 @@ export default new Vuex.Store({
             })
         },
         favorites({commit},payload) {
-            commit('favorites',payload)
+            commit('favorites',payload);
         },
         typing({commit},payload) {
             api.autoComplete(payload).then((cities) => {
-                commit('typing',cities) 
+                commit('typing',cities);
             })
         },
         error_fetch({commit},payload) {
-            commit('error_fetch',payload)
+            commit('error_fetch',payload);
         },
         letterNotAllow({commit},payload) {
-            commit('letterNotAllow',payload)
+            commit('letterNotAllow',payload);
         }
     }
 })
