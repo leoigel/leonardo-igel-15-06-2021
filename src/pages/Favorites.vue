@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div
-      v-if="favoritesWhethers"
+      v-if="favoritesWhethers.length > 0"
       class="cards_favorites"
     >
       <div
@@ -37,7 +37,7 @@ export default {
 
     data() {
         return {
-            favoritesWhethers:null,
+            favoritesWhethers:[],
             pic_url,
         }
     },
