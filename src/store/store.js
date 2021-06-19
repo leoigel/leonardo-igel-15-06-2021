@@ -6,7 +6,7 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
     state:{
-        city:"Tel Aviv",
+        favoriteCity:"",
         cities:[],
         wheather:null,
         favorite:false,
@@ -63,6 +63,9 @@ export default new Vuex.Store({
                 }
               }, []);
             
+        },
+        favoriteCity(state,payload){
+            state.favoriteCity = payload;
         }
     },
     actions: {
@@ -99,6 +102,9 @@ export default new Vuex.Store({
         },
         favorites({commit},payload) {
             commit('favorites',payload);
+        },
+        favoriteCity({commit},payload) {
+            commit('favoriteCity',payload)
         },
         typing({commit},payload) {
             api.autoComplete(payload).then((cities) => {
