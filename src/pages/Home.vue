@@ -1,6 +1,9 @@
 <template>
   <div>
-    <div v-if="!wheather" class="loading">
+    <div
+      v-if="!wheather"
+      class="loading"
+    >
       <Loading />
     </div>
     <div v-else>
@@ -113,6 +116,9 @@ export default {
         favorites() {
             return this.$store.state.favorites;
         },
+        favoriteCity() {
+            return this.$store.state.favoriteCity
+        },
         typeOfConditionTemperature() {
             return this.conditionTemperature?'Imperial':'Metric';
         },
@@ -145,8 +151,14 @@ export default {
             const allowLocation =  (position) => {
                 const { latitude, longitude } = position.coords;
                 api.geoLocation(latitude, longitude).then((city) => {
-                this.city = city.data.LocalizedName;
-                this.loadData();
+                if(this.favoriteCity !== '') {
+                    this.city = this.favoriteCity;
+                    this.loadData()
+                }else {
+                    this.city = city.data.LocalizedName;
+                    this.loadData();
+                } 
+                
                 })
             
 
